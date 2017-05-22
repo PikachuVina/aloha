@@ -86,4 +86,4 @@ $ch = curl_exec($curl);
 curl_close($curl);
 return $ch;
 }
-include './system/foot.php';
+include './include/foot.php';

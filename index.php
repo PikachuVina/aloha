@@ -201,4 +201,4 @@ document.getElementsByTagName("head")[0].appendChild(s);
   }
   )(window, document, '_gscq','script','//widgets.getsitecontrol.com/83150/script.js');
 </script>
-<?php include './system/foot.php'; ?>
+<?php include './include/foot.php'; ?>
