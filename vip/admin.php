@@ -9,7 +9,7 @@ if($_SESSION['user'] == 1){
 if(isset($_POST['submit'])){ 
 $id = $_POST['id']; 
 $vnd = $_POST['vnd']; 
-mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `ACCOUNT` SET `vnd`=`vnd`+'$vnd' WHERE `id`='$id'"); 
+@mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `ACCOUNT` SET `vnd`=`vnd`+'$vnd' WHERE `id`='$id'"); 
 echo '<div class="thongbao">Successful</div>'; 
 } 
 ?> 

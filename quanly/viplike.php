@@ -2,11 +2,11 @@
 set_time_limit(0); 
 include '../include/config.php'; 
 $like = array(0, 200, 500, 1000, 2000, 5000); 
-$req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `goi` FROM `VIP` ORDER BY RAND() LIMIT 0,5"); 
-while($res = mysqli_fetch_assoc($req)){ 
+$req = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `goi` FROM `VIP` ORDER BY RAND() LIMIT 0,5"); 
+while($res = @mysqli_fetch_array($req)){ 
 $idfb = $res['idfb']; 
-$reqt = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `token` FROM `token` ORDER BY RAND() LIMIT 0,69"); 
-while($rest = mysqli_fetch_assoc($reqt)){ 
+$reqt = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `token` FROM `token` ORDER BY RAND() LIMIT 0,69"); 
+while($rest = @mysqli_fetch_array($reqt)){ 
 $token = $rest['token']; 
 $stat = json_decode(auto('https://graph.facebook.com/'.$idfb.'/feed?fields=id&access_token='.$token.'&limit=1'),true); 
         $countlike = $stat[data][0][likes][count]; 

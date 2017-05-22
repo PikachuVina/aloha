@@ -10,5 +10,5 @@ if (!$connection)
 
   } 
 mysqli_select_db($GLOBALS["___mysqli_ston"], $dbname) or die(mysqli_error($GLOBALS["___mysqli_ston"])); 
-mysqli_query($GLOBALS["___mysqli_ston"], "SET NAMES utf8"); 
+@mysqli_query($GLOBALS["___mysqli_ston"], "SET NAMES utf8"); 
 ?>

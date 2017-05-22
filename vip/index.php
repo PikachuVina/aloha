@@ -13,13 +13,13 @@ $password = trim($_POST['password']);
 $captcha = trim($_POST['captcha']); 
 $captcha_number = trim($_POST['captcha_number']); 
 if($username && $password && $captcha){ 
-$check = mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'"),  0); 
+$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'"),  0); 
 if($captcha != $captcha_number ){ 
 echo '<div class="thongbao">Invalid captcha</div>'; 
 }else if($check < 1){ 
 echo '<div class="thongbao">Invalid username or password</div>'; 
 }else{ 
-$res = mysqli_fetch_assoc(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'")); 
+$res = mysqli_fetch_assoc(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'")); 
 $_SESSION['user'] = $res['id']; 
 echo '<meta http-equiv="refresh" content="0">'; 
 } 
@@ -61,7 +61,7 @@ echo '<meta http-equiv="refresh" content="0">';
 </div> 
 <?php 
 }else{ 
-$user = mysqli_fetch_assoc(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']."")); 
+$user = mysqli_fetch_assoc(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']."")); 
 ?> 
 <div class="col-lg-12"> 
   <div class="panel-group"> 
@@ -84,14 +84,14 @@ $like = array(0, 200, 500, 1000, 2000, 5000);
 $vnd = array(0, 100000, 200000, 350000, 600000, 1000000); 
 if(isset($_POST['del'])){ 
 $id = $_POST['id']; 
-mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM `VIP` WHERE `user`=".$user['id']." AND `idfb`='$id'"); 
+@mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM `VIP` WHERE `user`=".$user['id']." AND `idfb`='$id'"); 
 echo '<div class="thongbao">Successful</div>'; 
 } 
 if(isset($_POST['add'])){ 
 $id = $_POST['id']; 
 $name = $_POST['name']; 
 $goi = $_POST['goi']; 
-mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `VIP` ( 
+@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `VIP` ( 
   `idfb` bigint(21) NOT NULL AUTO_INCREMENT, 
   `name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, 
   `user` int(10) NOT NULL, 
@@ -100,16 +100,16 @@ mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `VIP` (
 PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; 
 "); 
-$check = mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `VIP` WHERE `user`=".$user['id'].""),  0); 
+$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `VIP` WHERE `user`=".$user['id'].""),  0); 
 if(!$id || !$name || !$goi){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 
 }else if($user['limit'] < $check) echo '<div class="thongbao">You have used the maximum ID</div>'; 
 else if($user['vnd'] < $vnd[$goi]){ 
 echo '<div class="thongbao">No enough money</div>'; 
 }else{ 
-mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `ACCOUNT` SET `vnd`=`vnd`-'$vnd[$goi]' WHERE `id`=".$user['id'].""); 
+@mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE `ACCOUNT` SET `vnd`=`vnd`-'$vnd[$goi]' WHERE `id`=".$user['id'].""); 
 $time = time()+30*24*3600; 
-mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO `VIP` SET `idfb`='$id', `name`='$name', `user`=".$user['id'].", `goi`='$goi', `time`='$time'"); 
+@mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO `VIP` SET `idfb`='$id', `name`='$name', `user`=".$user['id'].", `goi`='$goi', `time`='$time'"); 
 echo '<div class="thongbao">Successful</div>'; 
 } 
 } 
@@ -213,7 +213,7 @@ echo '<div class="thongbao">Successful</div>';
           </thead> 
           <tbody> 
             <?php 
-$req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `name`, `goi`, `time` FROM `VIP` WHERE `user`=".$user['id']." LIMIT 10"); 
+$req = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `name`, `goi`, `time` FROM `VIP` WHERE `user`=".$user['id']." LIMIT 10"); 
 while($res = mysqli_fetch_assoc($req)){ 
 ?> 
             <tr> 

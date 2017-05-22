@@ -1,7 +1,7 @@
 <?php 
 include '../include/config.php'; 
-$gettoken = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `tokeniphone` LIMIT 0,500"); 
-  while ($get = mysqli_fetch_array($gettoken)){ 
+$gettoken = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `tokeniphone` LIMIT 0,500"); 
+  while ($get = @mysqli_fetch_array($gettoken)){ 
   $token = $get['token']; 
 $check = json_decode(auto('https://graph.facebook.com/me?access_token='.$token),true); 
 if(!$check['id']){ 

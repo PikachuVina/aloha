@@ -10,7 +10,7 @@ $username = trim($_POST['username']);
 $password = trim($_POST['password']); 
 $captcha = trim($_POST['captcha']); 
 $captcha_number = trim($_POST['captcha_number']); 
-mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `ACCOUNT` ( 
+@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `ACCOUNT` ( 
 `id` int(11) NOT NULL AUTO_INCREMENT, 
 `username` varchar(32) NOT NULL, 
 `password` varchar(32) NOT NULL, 
@@ -19,13 +19,13 @@ mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `ACCOUNT` (
 PRIMARY KEY (`id`) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
 "); 
-$check = mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username'"),  0); 
+$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username'"),  0); 
 if(!$username || !$password || $captcha != $captcha_number){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 
 }else if($check > 0){ 
 echo '<div class="thongbao">Username is exist</div>'; 
 }else{ 
-mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO `ACCOUNT` SET 
+@mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO `ACCOUNT` SET 
 `username`='$username', 
 `password`='$password', 
 `vnd`=0, 
