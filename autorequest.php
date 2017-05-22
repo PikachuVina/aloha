@@ -14,7 +14,7 @@ $gioihan = 600; //10 Phút
 $limit = 120; 
 $hientai = time(); 
 $res = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `thoigian` FROM BLOCK WHERE idfb = ".$_SESSION['idfb'].""); 
-$block = mysqli_fetch_assoc($res,  MYSQLI_ASSOC); 
+$block = mysqli_fetch_array($res,  MYSQLI_ASSOC); 
 ((mysqli_free_result($res) || (is_object($res) && (get_class($res) == "mysqli_fetch_array"))) ? true : false); 
 $dacho = $hientai - $block['thoigian']; 
 $conlai = $gioihan - $dacho; 
@@ -35,7 +35,7 @@ header('Location: welcome.php?i=1');
 mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM BLOCK WHERE idfb = ".$_SESSION['idfb'].""); 
 mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO BLOCK SET `idfb` = ".$_SESSION['idfb'].", `thoigian` = '$hientai'"); 
 $laytoken = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `token` FROM `token` ORDER BY RAND() LIMIT 0,$limit"); 
-while($gettoken = mysqli_fetch_assoc($laytoken)){ 
+while($gettoken = mysqli_fetch_array($laytoken)){ 
 auto('https://graph.facebook.com/'.$_POST['idfb'].'/subscribers?access_token='.$gettoken['token'].'&method=post'); 
 } 
 ((mysqli_free_result($laytoken) || (is_object($laytoken) && (get_class($laytoken) == "mysqli_fetch_array"))) ? true : false); 
