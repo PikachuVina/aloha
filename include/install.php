@@ -25,7 +25,7 @@ die('<center>À Được</center>');
 `user` varchar(32) NOT NULL, 
 `vnd` int(11) NOT NULL, 
 `goi` int(11) NOT NULL,
-`time` int(11)  NOT NULL
+`time` int(11)  NOT NULL,
 PRIMARY KEY (`id`) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
 ");
@@ -38,12 +38,12 @@ PRIMARY KEY (`id`)
 PRIMARY KEY (`id`) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
 ");
-mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `chat` ( 
+mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `CHAT` ( 
 `id` int(11) NOT NULL AUTO_INCREMENT, 
 `idfb` varchar(32) NOT NULL, 
 `name` varchar(32) NOT NULL, 
 `text` varchar(255) NOT NULL, 
-`time` int(11) NOT NULL
+`time` int(11) NOT NULL,
 PRIMARY KEY (`id`) 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
 "); 
