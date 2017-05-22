@@ -100,7 +100,7 @@ $goi = $_POST['goi'];
 PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; 
 "); 
-$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `VIP` WHERE `user`=".$user['id'].""),  0); 
+$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `VIP` WHERE `user`=".$user['id']."")); 
 if(!$id || !$name || !$goi){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 
 }else if($user['limit'] < $check) echo '<div class="thongbao">You have used the maximum ID</div>'; 
