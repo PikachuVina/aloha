@@ -13,13 +13,13 @@ $password = trim($_POST['password']);
 $captcha = trim($_POST['captcha']); 
 $captcha_number = trim($_POST['captcha_number']); 
 if($username && $password && $captcha){ 
-$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'"),  0); 
+$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password' ORDER BY RAND()")); 
 if($captcha != $captcha_number ){ 
 echo '<div class="thongbao">Invalid captcha</div>'; 
 }else if($check < 1){ 
 echo '<div class="thongbao">Invalid username or password</div>'; 
 }else{ 
-$res = mysqli_fetch_assoc(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'")); 
+$res = mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'")); 
 $_SESSION['user'] = $res['id']; 
 echo '<meta http-equiv="refresh" content="0">'; 
 } 
