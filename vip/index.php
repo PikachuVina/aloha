@@ -61,7 +61,7 @@ echo '<meta http-equiv="refresh" content="0">';
 </div> 
 <?php 
 }else{ 
-$user = mysqli_fetch_assoc(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']."")); 
+$user = mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']."")); 
 ?> 
 <div class="col-lg-12"> 
   <div class="panel-group"> 
@@ -214,7 +214,7 @@ echo '<div class="thongbao">Successful</div>';
           <tbody> 
             <?php 
 $req = @mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `name`, `goi`, `time` FROM `VIP` WHERE `user`=".$user['id']." LIMIT 10"); 
-while($res = mysqli_fetch_assoc($req)){ 
+while($res = mysqli_fetch_array($req)){ 
 ?> 
             <tr> 
               <td> 
