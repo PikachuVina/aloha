@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
-include '../system/config.php'; 
-include '../system/head.php'; 
+include '../include/config.php'; 
+include '../include/head.php'; 
 mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `chat` ( 
 `id` int(10) NOT NULL AUTO_INCREMENT, 
 `idfb` varchar(32) NOT NULL, 
@@ -115,4 +115,4 @@ $("#msg").val("");
 </div>
 </div>
 <?php
-include '../system/foot.php';
+include '../include/foot.php';

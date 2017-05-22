@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
-include '../system/config.php'; 
-include '../system/head.php'; 
+include '../include/config.php'; 
+include '../include/head.php'; 
 if($_SESSION['user'] == 1){ 
 ?> 
 <div class="col-lg-4 col-lg-offset-4"> 
@@ -44,5 +44,5 @@ echo '<div class="thongbao">Successful</div>';
 </div> 
 <?php 
 } 
-include '../system/foot.php';
+include '../include/foot.php';
 ?>

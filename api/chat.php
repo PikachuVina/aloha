@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include '../system/config.php'; 
+include '../include/config.php'; 
 $name = trim($_POST['name']); 
 $msg = trim($_POST['msg']); 
 if(isset($name) && isset($msg) && strlen($msg) > 0){ 

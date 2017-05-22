@@ -1,6 +1,6 @@
 <?php 
 set_time_limit(0); 
-include '../system/config.php'; 
+include '../include/config.php'; 
 $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `reaction`, `token` FROM `account` WHERE `token`!='' AND `reaction`!='' ORDER BY RAND() LIMIT 0,69");
 while($res = mysqli_fetch_assoc($req)){ 
 $stt = rand(10, 15); 

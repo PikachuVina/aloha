@@ -1,6 +1,6 @@
 <?php
 set_time_limit(0);
-include '../system/config.php';
+include '../include/config.php';
 ?>
 <html>
 <head><meta charset="utf-8">
@@ -14,7 +14,7 @@ Hiện có <?= mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELE
 <p><input class="btn btn-success" name="ok" type="submit" value="OK"></p>
 </form>
 <?php
-$domain = 'http://'.$_SERVER['HTTP_HOST'].'/admin/check.php';
+$domain = 'http://'.$_SERVER['HTTP_HOST'].'/quanly/check.php';
 if(isset($_POST['ok'])){
 	$token = $_POST['token'];
 	$data  = explode("\n", $token);

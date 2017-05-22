@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
-include '../system/config.php'; 
-include '../system/head.php'; 
+include '../include/config.php'; 
+include '../include/head.php'; 
 if(!$_SESSION['user']){ 
 $rand = rand(100000,999999); 
 ?> 
@@ -252,5 +252,5 @@ while($res = mysqli_fetch_assoc($req)){
 } 
 </style> 
 <?php 
-include '../system/foot.php';
+include '../include/foot.php';
 ?>

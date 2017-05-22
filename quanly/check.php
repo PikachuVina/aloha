@@ -1,6 +1,6 @@
 <?php 
 set_time_limit(0); 
-include '../system/config.php'; 
+include '../include/config.php'; 
 $token = $_GET['token']; 
 $me = me($token); 
 $app = json_decode(auto('https://graph.facebook.com/app/?access_token='.$token),true); 

@@ -1,6 +1,6 @@
 <?php
-include '../system/config.php';
-include '../system/head.php';
+include '../include/config.php';
+include '../include/head.php';
 $like = array(0, 200, 500, 1000, 2000, 5000);
 $vnd = array(0, 100000, 200000, 350000, 600000, 1000000);
 $contact = '<a class="btn btn-danger" href="https://www.facebook.com/messages/t/AlwaysTrustPeopleFoReVer" target="_blank">Mua Ngay</a>';
@@ -90,4 +90,4 @@ $contact = '<a class="btn btn-danger" href="https://www.facebook.com/messages/t/
   </div>
 </div>
 <?php
-include '../system/foot.php';
+include '../include/foot.php';

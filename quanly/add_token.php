@@ -23,7 +23,7 @@ Từ chối truy cập! Vui lòng nhập mã xác nhận<br />
 ';
 exit;
 } 
-    include '../config.php'; 
+    include '../include/config.php'; 
     $table = 'token'; // table l&#432;u token  
     $graph = 'https://graph.facebook.com/'; 
     $success = 0; 

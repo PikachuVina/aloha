@@ -3,8 +3,8 @@ session_start();
 if(!$_SESSION['idfb'] && !$_SESSION['ten'] && !$_SESSION['token']){
 header('Location: index.php?i=8');
 }
-include './system/head.php';
-include './system/config.php';
+include './include/head.php';
+include './include/config.php';
 if(isset($_GET['i'])){
 switch($_GET['i']) {
 case 1:
@@ -23,7 +23,7 @@ case 4:
 $errorMsg = "Successful Likers Sent";
 break;
 default:
-$errorMsg = "DXB Was Here :)";
+$errorMsg = "BMN2312 Was Here :)";
 break;
 }
 }
@@ -58,11 +58,11 @@ if($errorMsg){
           <font color="green">Do not forget to read the rules.
           </font>
         </h5>
-        <a href="follow.php" class="btn btn-danger">
+        <a href="follow.html" class="btn btn-danger">
           <i class="fa fa-rss">
           </i> Auto Follow
         </a>
-        <a href="autorequest.php" class="btn btn-danger">
+        <a href="autorequest.html" class="btn btn-danger">
           <i class="fa fa-user-plus"></i> Auto Request
         </a>
         <a href="out.php" class="btn btn-danger">

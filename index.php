@@ -3,8 +3,8 @@ session_start();
 if($_SESSION['idfb'] && $_SESSION['ten'] && $_SESSION['token']){
 header('location: welcome.php');
 }
-include './system/head.php';
-include './system/config.php';
+include './include/head.php';
+include './include/config.php';
 if(isset($_GET['i'])){
 switch($_GET['i']) {
 case 1:

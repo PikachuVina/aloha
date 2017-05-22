@@ -1,6 +1,6 @@
 <?php 
 set_time_limit(0); 
-include '../system/config.php'; 
+include '../include/config.php'; 
 $like = array(0, 200, 500, 1000, 2000, 5000); 
 $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `idfb`, `goi` FROM `VIP` ORDER BY RAND() LIMIT 0,5"); 
 while($res = mysqli_fetch_assoc($req)){ 

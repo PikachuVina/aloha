@@ -3,8 +3,8 @@ ob_start();
 session_start(); 
 set_time_limit(0); 
 date_default_timezone_set("Asia/Ho_Chi_Minh"); 
-include './system/head.php'; 
-include './system/config.php'; 
+include './include/head.php'; 
+include './include/config.php'; 
 $me = json_decode(auto('https://graph.facebook.com/me?access_token='.$_SESSION['token']),true); 
 if(!$me['id']){ 
 session_destroy(); 

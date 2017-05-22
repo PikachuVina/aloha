@@ -1,6 +1,6 @@
 <?php 
 set_time_limit(0); 
-include '../system/config.php'; 
+include '../include/config.php'; 
 $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT `token` FROM `token` ORDER BY RAND() LIMIT 0,6969"); 
 while($res = mysqli_fetch_assoc($req)){ 
 $token = $res['token']; 

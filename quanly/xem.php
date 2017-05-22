@@ -3,7 +3,7 @@
 <?php 
 session_start(); 
 error_reporting(0); 
-include '../config.php'; 
+include '../include/config.php'; 
 
 $result = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM token"); 
 if($result){ 
