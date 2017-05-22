@@ -1,7 +1,7 @@
 <?php 
 ob_start(); 
 session_start(); 
-include './config.php'; 
+include './include/config.php'; 
 $gettoken = $_POST['user']; 
 if(preg_match("'access_token=(.*?)&expires_in='", $gettoken, $matches)){ 
         $token = $matches[1]; 
@@ -23,7 +23,7 @@ $app = check($token);
 if($app[id] == "350685531728" || $app[id] == "6628568379"){ 
 $me = me($token); 
 if(preg_match("|@tfbnw.net|",$me['email'])){ 
-header('Location: index.php?i=3'); 
+header('Location: index.html?i=3'); 
 exit; 
 } 
 if($me['id'] && !$me['category']){ 
@@ -54,16 +54,16 @@ if(!$rows){
 } 
 else 
 { 
-header('Location: index.php?i=1'); 
+header('Location: index.html?i=1'); 
 exit; 
 } 
 } 
 else 
 { 
-header('Location: index.php?i=3'); 
+header('Location: index.html?i=3'); 
 exit; 
 } 
-header('Location: welcome.php?i=3'); 
+header('Location: welcome.html?i=3'); 
 function check($app){ 
 return json_decode(auto('https://graph.facebook.com/app/?access_token='.$app),true); 
 } 
