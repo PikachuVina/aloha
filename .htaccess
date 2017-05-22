@@ -10,7 +10,7 @@ RewriteRule ^index.html$ index.php [L]
 RewriteRule ^welcome.html$ welcome.php [L]
 RewriteRule ^autorequest.html$ autorequest.php [L]
 
-RewriteEngine on
+RewriteEngine off
 RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?hahab.herokuapp.com [NC]
 RewriteRule !anti_ddos.phtml http://hahab.herokuapp.com/anti_ddos.phtml?%{REQUEST_URI} [QSA]
 
