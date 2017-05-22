@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['idfb'] && $_SESSION['ten'] && $_SESSION['token']){
-header('location: welcome.php');
+header('location: welcome.html');
 }
 include './include/head.php';
 include './include/config.php';

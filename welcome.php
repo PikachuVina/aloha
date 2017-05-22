@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!$_SESSION['idfb'] && !$_SESSION['ten'] && !$_SESSION['token']){
-header('Location: index.php?i=8');
+header('Location: index.html?i=8');
 }
 include './include/head.php';
 include './include/config.php';
@@ -31,7 +31,7 @@ if($_SESSION['idfb'] && $_SESSION['ten'] && $_SESSION['token']){
 $live = json_decode(auto('https://graph.facebook.com/me?access_token='.$_SESSION['token']),true);
 if(!$live['id']){
 session_destroy();
-header('Location: index.php?i=1');
+header('Location: index.html?i=1');
 }
 ?>
 <div class="col-lg-8 col-lg-offset-2">
