@@ -16,16 +16,36 @@ die('<center>À Được</center>');
   `id` int(11) NOT NULL AUTO_INCREMENT, 
   `idfb` varchar(32) NOT NULL, 
   `thoigian` int(11) NOT NULL, 
-  PRIMARY KEY (`id`) 
+  PRIMARY KEY (`id`)
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ; 
 "); 
 @mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `VIP` ( 
-  `idfb` bigint(21) NOT NULL AUTO_INCREMENT, 
-  `name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, 
-  `user` int(10) NOT NULL, 
-  `goi` tinyint(1) NOT NULL, 
-  `time` int(10) NOT NULL, 
+`idfb` varchar(32)  NOT NULL, 
+`name` varchar(32)  NOT NULL, 
+`user` varchar(32) NOT NULL, 
+`vnd` int(11) NOT NULL, 
+`goi` int(11) NOT NULL,
+`time` int(11)  NOT NULL
 PRIMARY KEY (`id`) 
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
 ");
+@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `ACCOUNT` ( 
+`id` int(11) NOT NULL AUTO_INCREMENT, 
+`username` varchar(32) NOT NULL, 
+`password` varchar(32) NOT NULL, 
+`vnd` int(10) NOT NULL, 
+`limit` int(10) NOT NULL,
+PRIMARY KEY (`id`) 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
+");
+mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `chat` ( 
+`id` int(11) NOT NULL AUTO_INCREMENT, 
+`idfb` varchar(32) NOT NULL, 
+`name` varchar(32) NOT NULL, 
+`text` varchar(255) NOT NULL, 
+`time` int(11) NOT NULL
+PRIMARY KEY (`id`) 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
+"); 
+?>
 ?> 
