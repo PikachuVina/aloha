@@ -22,7 +22,7 @@ if(isset($_POST['submit']) && isset($_POST['idfb']))
 { 
 $ip = $_SERVER['REMOTE_ADDR']; 
 $response = $_POST['g-recaptcha-response']; 
-$captcha = auto("https://www.google.com/recaptcha/api/siteverify?secret=6LfyTSEUAAAAAIu0kAURJwdnMGL2ByTqBWMaICyf&response=$response&remoteip=$ip"); 
+$captcha = auto("https://www.google.com/recaptcha/api/siteverify?secret=6LeoOhsTAAAAANV01JhToL7enNXyxanw1DB6rU9f&response=$response&remoteip=$ip"); 
 $json = json_decode($captcha,true); 
 if($json['success'] != 1) 
 { 
@@ -81,7 +81,7 @@ header('Location: welcome.php?i=4');
           </b> 
           <script src='https://www.google.com/recaptcha/api.js'> 
           </script> 
-          <div class="g-recaptcha" data-sitekey="6LfyTSEUAAAAAFbRr7sOWLJ9b9pGky_vpGWlasPS"> 
+          <div class="g-recaptcha" data-sitekey="6LeoOhsTAAAAAA-k0rHYdqCtxw7HsU8j86_AkBpj"> 
           </div> 
           <button type="submit" name="submit" class="btn btn-danger submit"> 
             <i class="fa fa-paper-plane-o"> 
