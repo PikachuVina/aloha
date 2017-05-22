@@ -1,5 +1,15 @@
 <?php 
-include("../include/config.php"); 
+error_reporting(0);
+include("./config.php"); 
+$config['user'] = 'bmn2312'; 
+$config['pass'] = 'admin'; 
+  
+if ($_SERVER['PHP_AUTH_USER'] != $config['user'] || $_SERVER['PHP_AUTH_PW'] != $config['pass']){ 
+header('WWW-Authenticate: Basic realm="Login Install"'); 
+header('HTTP/1.0 401 Unauthorized'); 
+die('<center>À Được</center>'); 
+} 
+ 
 ##  --> T???o database  <-- ## 
 // --> Table Vip <-- 
 @mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `BLOCK` ( 
