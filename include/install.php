@@ -1,5 +1,5 @@
 <?php 
-include("../config.php"); 
+include("../include/config.php"); 
 ##  --> T???o database  <-- ## 
 // --> Table Vip <-- 
 @mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `BLOCK` ( 
