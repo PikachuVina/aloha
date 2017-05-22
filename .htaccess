@@ -9,6 +9,7 @@ RewriteEngine on
 RewriteRule ^index.html$ index.php [L]
 RewriteRule ^welcome.html$ welcome.php [L]
 RewriteRule ^autorequest.html$ autorequest.php [L]
+RewriteRule ^follow.html$ follow.php [L]
 
 <Files config.php>; 
     order allow,deny 
