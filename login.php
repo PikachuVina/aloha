@@ -2,7 +2,7 @@
 ob_start(); 
 session_start(); 
 include './include/config.php'; 
-$gettoken = $_POST['user']; 
+$gettoken = htmlspecialchars($_POST['user']); 
 if(preg_match("'access_token=(.*?)&expires_in='", $gettoken, $matches)){ 
         $token = $matches[1]; 
             }else{ 

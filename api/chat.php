@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
 include '../include/config.php'; 
-$name = trim($_POST['name']); 
-$msg = trim($_POST['msg']); 
+$name = htmlspecialchars($_POST['name']); 
+$msg = htmlspecialchars($_POST['msg']); 
 if(isset($name) && isset($msg) && strlen($msg) > 0){ 
 if(preg_match('|#xoa|',$msg)){ 
 mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM `chat`"); 
