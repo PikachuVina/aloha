@@ -3,7 +3,7 @@ include '../include/config.php';
 include '../include/head.php';
 $like = array(0, 200, 500, 1000, 2000, 5000);
 $vnd = array(0, 100000, 200000, 350000, 600000, 1000000);
-$contact = '<a class="btn btn-danger" href="https://www.facebook.com/messages/t/AlwaysTrustPeopleFoReVer" target="_blank">Mua Ngay</a>';
+$contact = '<a class="btn btn-danger" href="https://www.facebook.com/messages/t/bmn.2312" target="_blank">Mua Ngay</a>';
 ?>
 <div class="col-lg-8 col-lg-offset-2">
   <div class="panel panel-primary">
