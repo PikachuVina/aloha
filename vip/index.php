@@ -91,7 +91,7 @@ if(isset($_POST['add'])){
 $id = htmlspecialchars($_POST['id']); 
 $name = htmlspecialchars($_POST['name']); 
 $goi = htmlspecialchars($_POST['goi']); 
-$check = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `VIP` WHERE `user`=".$user['id']." ORDER BY RAND()")); 
+$check = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `VIP` WHERE `user`=".$user['id']."")); 
 if(!$id || !$name || !$goi){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 
 }else if($user['limit'] < $check) echo '<div class="thongbao">You have used the maximum ID</div>'; 
