@@ -2,7 +2,7 @@
 session_start(); 
 include '../include/config.php'; 
 include '../include/head.php'; 
-if($_SESSION['user'] == '100004294419791'){ 
+if($_SESSION['user'] == 'admin'){ 
 ?> 
 <div class="col-lg-4 col-lg-offset-4"> 
 <?php 
