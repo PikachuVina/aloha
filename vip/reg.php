@@ -6,19 +6,10 @@ $rand = rand(100000,999999);
 <div class="col-md-4 col-lg-offset-4"> 
         <?php 
 if(isset($_POST['submit'])){ 
-$username = trim($_POST['username']); 
-$password = trim($_POST['password']); 
-$captcha = trim($_POST['captcha']); 
-$captcha_number = trim($_POST['captcha_number']); 
-@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `ACCOUNT` ( 
-`id` int(11) NOT NULL AUTO_INCREMENT, 
-`username` varchar(32) NOT NULL, 
-`password` varchar(32) NOT NULL, 
-`vnd` int(10) NOT NULL, 
-`limit` int(10) NOT NULL, 
-PRIMARY KEY (`id`) 
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1; 
-"); 
+$username = htmlspecialchars($_POST['username']); 
+$password = htmlspecialchars($_POST['password']); 
+$captcha = htmlspecialchars($_POST['captcha']); 
+$captcha_number = htmlspecialchars($_POST['captcha_number']); 
 $check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username'"),  0); 
 if(!$username || !$password || $captcha != $captcha_number){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 

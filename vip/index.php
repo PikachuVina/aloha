@@ -8,10 +8,10 @@ $rand = rand(100000,999999);
 <div class="col-lg-4 col-lg-offset-4"> 
   <?php 
 if(isset($_POST['submit'])){ 
-$username = trim($_POST['username']); 
-$password = trim($_POST['password']); 
-$captcha = trim($_POST['captcha']); 
-$captcha_number = trim($_POST['captcha_number']); 
+$username = htmlspecialchars($_POST['username']); 
+$password = htmlspecialchars($_POST['password']); 
+$captcha = htmlspecialchars($_POST['captcha']); 
+$captcha_number = htmlspecialchars($_POST['captcha_number']); 
 if($username && $password && $captcha){ 
 $check = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password' ORDER BY RAND()")); 
 if($captcha != $captcha_number ){ 
@@ -83,7 +83,7 @@ $user = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * F
 $like = array(0, 200, 500, 1000, 2000, 5000); 
 $vnd = array(0, 100000, 200000, 350000, 600000, 1000000); 
 if(isset($_POST['del'])){ 
-$id = $_POST['id']; 
+$id = htmlspecialchars($_POST['id']); 
 @mysqli_query($GLOBALS["___mysqli_ston"], "DELETE FROM `VIP` WHERE `user`=".$user['id']." AND `idfb`='$id'"); 
 echo '<div class="thongbao">Successful</div>'; 
 } 
