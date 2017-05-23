@@ -7,7 +7,8 @@ $rand = rand(100000,999999);
         <?php 
 if(isset($_POST['submit'])){ 
 $username = htmlspecialchars($_POST['username']); 
-$password = htmlspecialchars($_POST['password']); 
+$password = htmlspecialchars($_POST['password']);
+$limit = htmlspecialchars($_POST['limit']); 
 $captcha = htmlspecialchars($_POST['captcha']); 
 $captcha_number = htmlspecialchars($_POST['captcha_number']); 
 $check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT COUNT(*) FROM `ACCOUNT` WHERE `username`='$username'"),  0); 
@@ -20,7 +21,7 @@ echo '<div class="thongbao">Username is exist</div>';
 `username`='$username', 
 `password`='$password', 
 `vnd`=0, 
-`limit`=1 
+`limit`='$limit'
 "); 
 echo '<div class="thongbao">Successful</div>'; 
 echo '<meta http-equiv="refresh" content="0;url=index.php">'; 
@@ -46,6 +47,13 @@ echo '<meta http-equiv="refresh" content="0;url=index.php">';
               </i> 
             </span> 
             <input class="form-control" placeholder="Password" name="password" type="password" required> 
+          </div>
+		  <div class="form-group input-group"> 
+            <span class="input-group-addon"> 
+              <i class="fa fa-lock"> 
+              </i> 
+            </span> 
+            <input class="form-control" placeholder="limit" name="limit" type="text" required> 
           </div> 
           <div class="form-group input-group"> 
             <span class="input-group-addon"><input type="text" id="captcha_number" name="captcha_number" value="<?= $rand ?>" readonly=""></span> 
