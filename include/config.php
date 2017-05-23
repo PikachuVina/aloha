@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 $host = "mysql4.gear.host"; 
 $username = "nghia3"; 
 $password = "Af6S3oO88D~?"; 
