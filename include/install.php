@@ -32,9 +32,8 @@ die('<center>À Được</center>');
   `idfb` varchar(32)  NOT NULL, 
   `name` varchar(32)  NOT NULL, 
   `user` varchar(32)  NOT NULL, 
-  `vnd` int(11)  NOT NULL, 
-  `goi` int(11)  NOT NULL, 
-  `time` int(11)  NOT NULL, 
+  `goi` varchar(11) NOT NULL, 
+  `time` varchar(11) NOT NULL, 
   PRIMARY KEY (`id`) 
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ; 
 "); 
