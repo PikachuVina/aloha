@@ -13,13 +13,13 @@ $password = trim($_POST['password']);
 $captcha = trim($_POST['captcha']); 
 $captcha_number = trim($_POST['captcha_number']); 
 if($username && $password && $captcha){ 
-$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password' ORDER BY RAND()")); 
+$check = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password' ORDER BY RAND()")); 
 if($captcha != $captcha_number ){ 
 echo '<div class="thongbao">Invalid captcha</div>'; 
 }else if($check < 1){ 
 echo '<div class="thongbao">Invalid username or password</div>'; 
 }else{ 
-$res = mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password'")); 
+$res = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `username`='$username' AND `password`='$password' ORDER BY RAND()")); 
 $_SESSION['user'] = $res['id']; 
 echo '<meta http-equiv="refresh" content="0">'; 
 } 
@@ -61,7 +61,7 @@ echo '<meta http-equiv="refresh" content="0">';
 </div> 
 <?php 
 }else{ 
-$user = mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']."")); 
+$user = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `ACCOUNT` WHERE `id`=".$_SESSION['user']." ORDER BY RAND()")); 
 ?> 
 <div class="col-lg-12"> 
   <div class="panel-group"> 
@@ -88,19 +88,10 @@ $id = $_POST['id'];
 echo '<div class="thongbao">Successful</div>'; 
 } 
 if(isset($_POST['add'])){ 
-$id = $_POST['id']; 
-$name = $_POST['name']; 
-$goi = $_POST['goi']; 
-@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `VIP` ( 
-  `idfb` bigint(21) NOT NULL AUTO_INCREMENT, 
-  `name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, 
-  `user` int(10) NOT NULL, 
-  `goi` tinyint(1) NOT NULL, 
-  `time` int(10) NOT NULL, 
-PRIMARY KEY (`id`) 
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; 
-"); 
-$check = @mysqli_fetch_array(@mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `VIP` WHERE `user`=".$user['id']."")); 
+$id = htmlspecialchars($_POST['id']); 
+$name = htmlspecialchars($_POST['name']); 
+$goi = htmlspecialchars($_POST['goi']); 
+$check = @mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM `VIP` WHERE `user`=".$user['id']." ORDER BY RAND()")); 
 if(!$id || !$name || !$goi){ 
 echo '<div class="thongbao">Please fill form fully</div>'; 
 }else if($user['limit'] < $check) echo '<div class="thongbao">You have used the maximum ID</div>'; 
