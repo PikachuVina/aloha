@@ -18,7 +18,8 @@ $block = @mysqli_fetch_array($res,  MYSQLI_ASSOC);
 ((mysqli_free_result($res) || (is_object($res) && (get_class($res) == "@mysqli_fetch_array"))) ? true : false); 
 $dacho = $hientai - $block['thoigian']; 
 $conlai = $gioihan - $dacho; 
-if(isset($_POST['submit']) && isset($_POST['idfb'])) 
+$idfb = htmlspecialchars($_POST['idfb']);
+if(isset($_POST['submit']) && isset($idfb)) 
 { 
 $ip = $_SERVER['REMOTE_ADDR']; 
 $response = $_POST['g-recaptcha-response']; 
