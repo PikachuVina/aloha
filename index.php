@@ -78,7 +78,7 @@ echo '</center></div>';
         <div style="padding: 20px;border-top: <?= $color ?> solid;border-bottom: <?= $color ?> solid;">
           <b><font color="red"> Note:
           </font></b> Token as a Picture.
-          <a target="_blank" href="img/token.png"> Click View
+          <a target="_blank" href="http://i.imgur.com/sPwAY9K.png"> Click View
           </a>
           <br>
           <br>
