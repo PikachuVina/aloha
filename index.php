@@ -20,7 +20,7 @@ case 8:
 $errorMsg = "Please Login";
 break;
 default:
-$errorMsg = "DXB Was Here :)";
+$errorMsg = "BMN2312 Was Here :)";
 break;
 }
 }
